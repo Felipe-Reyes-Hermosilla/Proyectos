@@ -9,9 +9,7 @@ class NewsController extends Controller
 {
     public function newss()
     {
-        return view('newss', [
-            'newss' => News::latest()->paginate()
-        ]);
+        return view('newss', ['newss' => News::latest()->take(1)->get()], ['newss2' => News::latest()->skip(1)->take(3)->get()]);
     }
 
     public function news(News $news)

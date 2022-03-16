@@ -11,6 +11,23 @@ class News extends Model
     use Sluggable;
     use HasFactory;
 
+
+
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'titulo',
+        'descripcion_rapida',
+        'descripcion',
+        'autor',
+        'prioridad',
+        'objetivo',
+    ];
+
         /**
      * Return the sluggable configuration array for this model.
      *

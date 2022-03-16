@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\backend\NoticiaController;
 use App\Http\Controllers\NewsController;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,31 +18,62 @@ use App\Models\User;
 |
 */
 
-Route::get('/noticias', [NewsController::class, 'newss'])->name('newss');
-Route::get('/noticias/blog/{news}', [NewsController::class, 'news'])->name('news');
 
+
+/*
+|--------------------------------------------------------------------------
+| Ruta de blogs ("leer mas")
+|--------------------------------------------------------------------------
+*/
+Route::get('/blog/{news}', [NewsController::class, 'news'])->middleware(['auth'])->name('news');
+/*
+|--------------------------------------------------------------------------
+| Ruta de cracion de usuarios sin login
+|--------------------------------------------------------------------------
+*/
 Route::get('/nuevo', [UserController::class, 'index']);
+/*
+|--------------------------------------------------------------------------
+| Post de UserController
+|--------------------------------------------------------------------------
+*/
 Route::post('users', [UserController::class, 'store'])->name('users.store');;
+/*
+|--------------------------------------------------------------------------
+| Delete de usuarios
+|--------------------------------------------------------------------------
+*/
 Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');;
+/*
+|--------------------------------------------------------------------------
+| resourse de news
+|--------------------------------------------------------------------------
+*/
+Route::resource('news', NoticiaController::class)
+    ->middleware('auth')
+    ->except('show');
 
+/*
+|--------------------------------------------------------------------------
+| Ruta de Noticias
+|--------------------------------------------------------------------------
+*/
 
-Route::get('/test', function () {
-    $users = User::all()->take(1);
+Route::get('/Noticias', [NoticiaController::class, 'noticias'])->name('newss');
 
-    foreach($users as $user){
-        echo " $user->id $user->name $user->email $user->password <br>";
-    }
+/*
+|--------------------------------------------------------------------------
+|Ruta de Home
+|--------------------------------------------------------------------------
+*/
+Route::get('/', [NoticiaController::class, 'home'])->name('home');
 
-})->middleware(['auth']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+/*
+|--------------------------------------------------------------------------
+| auth require, para que funcione el autentificador de brezee
+|--------------------------------------------------------------------------
+*/
 
 require __DIR__.'/auth.php';
 
-Route::get('/prueba', function () {
-    return view('custom_dashboard');
-});
-
-
+Auth::routes();
