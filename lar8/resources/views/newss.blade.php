@@ -11,10 +11,8 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 @if($news->iframe)
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        {!! $news->iframe !!}
-                                    </div>
-                                @endif
+                                    <iframe width="820" height="400" src="{{ $news->iframe }}"></iframe>
+                                @endif  
                                 <h3 class="card-title">
                                     {{ $news->titulo }}
                                 </h3>
@@ -29,7 +27,7 @@
                                         &ndash; {{ $news->autor }}
                                     </em>
                                 </p>
-                            </div> 
+                            </> 
                         </div>
                     @endforeach
                     {{ $newss->links() }}

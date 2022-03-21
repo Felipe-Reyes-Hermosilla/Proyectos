@@ -27,6 +27,7 @@
                                 <th>Autor</th>
                                 <th>Prioridad</th>
                                 <th>Objetivo</th>
+                                <th>Iframe</th>
                                 <th colspan="2">&nbsp;</th>
                             </thead>
                             <tbody>
@@ -48,6 +49,7 @@
                                     @php if($news["objetivo"]===2) echo 'Solo rol A'; @endphp
                                     @php if($news["objetivo"]===3) echo 'Solo rol A y B'; @endphp                                   
                                 </td>
+                                <td>{{ $news->iframe }}</td>
                                 <td>
                                 <a href="{{ route('news.edit', $news) }}" class="btn btn-sm btn-primary">
                                     Editar

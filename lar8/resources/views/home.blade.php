@@ -13,11 +13,6 @@
                     <div class="card">
                         @foreach($newss as $news)
                             <div class="card-body">
-                                @if($news->iframe)
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        {!! $news->iframe !!}
-                                    </div>
-                                @endif
                                 @php echo '<a class="h5 text-decoration-none link-dark" data-bs-target="#', str_replace($a,$b,$news["titulo"]) ,'" data-bs-toggle="modal">', $news["titulo"], '</a>'@endphp
                                 <p class="card-text">
                                     {{ $news->descripcion_rapida }} <br>

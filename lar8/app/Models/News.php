@@ -23,6 +23,7 @@ class News extends Model
         'titulo',
         'descripcion_rapida',
         'descripcion',
+        'iframe',
         'autor',
         'prioridad',
         'objetivo',

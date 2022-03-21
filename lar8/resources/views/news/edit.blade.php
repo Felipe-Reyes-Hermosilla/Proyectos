@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Link</label>
-                                <textarea name="iframe" rows="3" class="form-control">{{ $news->iframe }}</textarea>
+                                <textarea name="iframe" rows="1" class="form-control">{{ $news->iframe }}</textarea>
                             </div>
 
                             <div class="card-body form-group row">

@@ -1,22 +1,21 @@
 @foreach ($modal as $mod)
 <!-- The Modal -->
 @php echo '<div class="modal" id="', str_replace($a,$b,$mod["titulo"]) , '">' @endphp
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-                @if($news->iframe)
-                    <div class="embed-responsive embed-responsive-16by9">
-                        {!! $news->iframe !!}
-                    </div>
-                @endif
                 <h3 class="modal-title"> {{ $mod->titulo }} </h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>  
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
+                @if($mod->iframe)
+                    <iframe width="470" height="250" src="{{ $news->iframe }}"></iframe>
+                    <hr>
+                @endif
                 <h5>
                     {{ $mod->descripcion_rapida }}
                 </h5>

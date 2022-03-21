@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Link</label>
-                                <textarea name="iframe" rows="3" class="form-control" placeholder="Codigo de inserción" value="{{ old('iframe') }}"></textarea>
+                                <textarea name="iframe" rows="1" class="form-control" placeholder="Codigo de inserción" value="{{ old('iframe') }}"></textarea>
                             </div>
                             
                             <div class="card-body form-group row">
