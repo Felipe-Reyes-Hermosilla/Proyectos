@@ -26,7 +26,8 @@ class NewsRequest extends FormRequest
         return [
             'titulo' => ['required', 'string', 'max:100'],
             'descripcion_rapida' => ['required', 'string', 'max:100'],
-            'descripcion' => ['max:255'],
+            'descripcion' => ['max:700'],
+            'iframe' => ['max:2000'],
             'autor' => ['required'],
             'prioridad' => ['required'],
             'objetivo' => ['required'],

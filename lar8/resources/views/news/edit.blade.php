@@ -36,6 +36,10 @@
                                 <label>Descripcion</label>
                                 <textarea name="descripcion" rows="6" class="form-control">{{ $news->descripcion }}</textarea>
                             </div>
+                            <div class="form-group">
+                                <label>Link</label>
+                                <textarea name="iframe" rows="3" class="form-control">{{ $news->iframe }}</textarea>
+                            </div>
 
                             <div class="card-body form-group row">
                                 <div class="form-group col-sm-4">

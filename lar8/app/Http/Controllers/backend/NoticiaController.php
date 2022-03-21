@@ -28,6 +28,7 @@ class NoticiaController extends Controller
             'titulo' =>             $request->titulo,
             'descripcion_rapida' => $request->descripcion_rapida,
             'descripcion' =>        $request->descripcion,
+            'iframe' =>             $request->iframe,
             'autor' =>              $request->autor,
             'prioridad' =>          $request->prioridad,
             'objetivo' =>           $request->objetivo
@@ -69,6 +70,13 @@ class NoticiaController extends Controller
 
     public function home()
     {
-        return view('home', ['newss' => News::latest()->take(1)->get()], ['newss2' => News::latest()->skip(1)->take(3)->get()]);
+
+        $data = [
+            "newss" => News::latest()->take(1)->get(),
+            "newss2" => News::latest()->skip(1)->take(3)->get(),
+            "modal" => News::latest()->take(4)->get()
+        ]; 
+
+        return view('home', $data);
     }
 }

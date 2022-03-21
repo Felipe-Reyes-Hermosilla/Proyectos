@@ -10,6 +10,11 @@
                     @foreach($newss as $news) 
                         <div class="card mb-4">
                             <div class="card-body">
+                                @if($news->iframe)
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        {!! $news->iframe !!}
+                                    </div>
+                                @endif
                                 <h3 class="card-title">
                                     {{ $news->titulo }}
                                 </h3>

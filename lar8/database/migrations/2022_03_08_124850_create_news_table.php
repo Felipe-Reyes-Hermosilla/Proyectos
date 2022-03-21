@@ -22,6 +22,7 @@ return new class extends Migration
             $table->bigInteger('objetivo');
             $table->bigInteger('prioridad');
             $table->string('autor');
+            $table->text('iframe')->nullable();
             $table->timestamps();
         });
     }

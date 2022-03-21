@@ -35,13 +35,17 @@
                                 <label>Descripcion</label>
                                 <textarea name="descripcion" rows="6" class="form-control" placeholder="Descripción opcional" value="{{ old('descripcion') }}"></textarea>
                             </div>
+                            <div class="form-group">
+                                <label>Link</label>
+                                <textarea name="iframe" rows="3" class="form-control" placeholder="Codigo de inserción" value="{{ old('iframe') }}"></textarea>
+                            </div>
                             
                             <div class="card-body form-group row">
                                 <div class="form-group col-sm-4">
                                     <label for="autor">Autor</label>
                                     <select class="form-select" aria-label="Default select example" name="autor" id="autor">
                                         <option selected>{{ Auth::user()->name }}</option>
-                                        <option>Anonimo</option>
+                                        <option value="">Anonimo</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-4">
